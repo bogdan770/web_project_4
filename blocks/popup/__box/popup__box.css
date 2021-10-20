@@ -1,0 +1,19 @@
+.popup__box{
+    margin: 195px auto 0;
+    width: 430px;
+    height: 330px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    position: relative;
+    text-align: center;
+}
+
+
+@media screen and (max-width: 500px){
+    .popup__box{
+        margin-top: 123px;
+        width: 282px;
+        height: 322px;
+    }
+    
+}

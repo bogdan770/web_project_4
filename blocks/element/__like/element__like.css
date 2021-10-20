@@ -1,0 +1,14 @@
+.element__like{
+    width: 21px;
+    height: 19px;
+    margin: 0;
+    transition: opacity .5s ease-in-out;
+}
+
+.element__like:hover{
+    opacity: 0.5;
+}
+
+.element__like:active{
+    background-image: url(../../../images/like_it.png);
+}
