@@ -9,6 +9,8 @@
     transition: opacity .5s ease-in-out;
     background-repeat: no-repeat;
     background-position: center;
+    padding: 0;
+    margin-bottom: 36px;
 }
 
 
@@ -20,5 +22,6 @@
     .popup__button{
         width: 238px;
         height: 48px;
+        margin-bottom: 25px;
     }
 }

@@ -11,13 +11,12 @@
     <div class="shell">
         <header class="header">
             <img class="header__logo" src="./images/around.svg" alt="Main logo of website">
-            <div class="header__border"></div>
         </header>
         <main class="page">
             <section class = "profile">
                 <img class="profile__avatar" src="./images/image.jpg" alt="Jacques Cousteau">
                 <div class="profile__info">
-                    <h2 class="profile__username">Jacques Cousteau</h2>
+                    <h1 class="profile__username">Jacques Cousteau</h1>
                     <button class="profile__edit-button" type="button"></button>
                     <p class="profile__userprof">Explorer</p>
                 </div>
@@ -28,43 +27,43 @@
                     <li class="element">
                         <img class="element__image" src="./images/card__image-valey.jpg" alt="Yosemite Valley">
                         <div class="element__conteiner">
-                            <h3 class="element__title">Yosemite Valley</h3>
-                            <img class="element__like" src="./images/like.svg" alt="black heart">
+                            <h2 class="element__title">Yosemite Valley</h2>
+                            <button class="element__like" type="button"></button>
                         </div>
                     </li>
                     <li class="element">
                         <img class="element__image" src="./images/card__image-lake.jpg " alt="Lake Louise">
                         <div class="element__conteiner">
-                            <h3 class="element__title">Lake Louise</h3>
-                            <img class="element__like" src="./images/like.svg" alt="black heart">
+                            <h2 class="element__title">Lake Louise</h2>
+                            <button class="element__like" type="button"></button>
                         </div>
                     </li>
                     <li class="element">
                         <img class="element__image" src="./images/card__image-smoky.jpg" alt="Bald Mountains">
                         <div class="element__conteiner">
-                            <h3 class="element__title">Bald Mountains</h3>
-                            <img class="element__like" src="./images/like.svg" alt="black heart">
+                            <h2 class="element__title">Bald Mountains</h2>
+                            <button class="element__like" type="button"></button>
                         </div>
                     </li>
                     <li class="element">
                         <img class="element__image" src="./images/card__image-latemar.jpg" alt="Latemar">
                         <div class="element__conteiner">
-                            <h3 class="element__title">Latemar</h3>
-                            <img class="element__like" src="./images/like.svg" alt="black heart">
+                            <h2 class="element__title">Latemar</h2>
+                            <button class="element__like" type="button"></button>
                         </div>
                     </li>
                     <li class="element">
                         <img class="element__image" src="./images/card__image-vanoise.jpg" alt="Vanoise Nationanal park">
                         <div class="element__conteiner">
-                            <h3 class="element__title">Vanoise Nationanal park</h3>
-                            <img class="element__like" src="./images/like.svg" alt="black heart">
+                            <h2 class="element__title">Vanoise Nationanal park</h2>
+                            <button class="element__like" type="button"></button>
                         </div>
                     </li>
                     <li class="element">
                         <img class="element__image" src="./images/card__image-lago.jpg" alt="Lago di Braies">
                         <div class="element__conteiner">
-                            <h3 class="element__title">Lago di Braies</h3>
-                            <img class="element__like" src="./images/like.svg" alt="black heart">
+                            <h2 class="element__title">Lago di Braies</h2>
+                            <button class="element__like" type="button"></button>
                         </div>
                     </li>
                 </ul>
@@ -72,21 +71,19 @@
         <footer class="footer">
             <p class="footer__title">&copy; 2021 Around The U.S.</p>
         </footer>
-        <div class="popup popup_display">
-            <div class="popup__container">
-                <div class="popup__box">
-                    <h2 class="popup__title">Edit profile</h2>
-                    <input type="text" class="popup__username input" placeholder="Name">
-                    <input type="text" class="popup__prof input" placeholder="About Me">
-                    <button class="popup__button" type="submit">Save</button>
-                    <img src="./images/close__icon.png" alt="close icon" class="popup__close">
-
-                </div>
-            </div>
+        <!-- adding popup -->
+        <div class="popup">
+            <form class="popup__form" name="popupF">
+                <h2 class="popup__title">Edit profile</h2>
+                <input type="text" class="input" id="userName" name="userN" placeholder="Name">
+                <input type="text" class="input" id="userJob" name="userJ" placeholder="About Me">
+                <button class="popup__button" type="submit">Save</button>
+                <button class="popup__close" type="submit"></button>
+            </form>
         </div>
         </main>
-
     </div>
 <script src="JS/script.js"></script>
+<!-- adding JAVASCRIPT file -->
 </body>
 </html>
