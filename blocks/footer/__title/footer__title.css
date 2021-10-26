@@ -7,3 +7,10 @@
     line-height: 22px;
     letter-spacing: 0em;
 }
+
+@media screen and (max-width: 500px){
+    .footer__title{
+        font-size: 14px;
+        line-height: 17px;
+    }   
+}

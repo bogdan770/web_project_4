@@ -73,13 +73,16 @@
         </footer>
         <!-- adding popup -->
         <div class="popup">
-            <form class="popup__form" name="popupF">
+            <div class="popup__box">
                 <h2 class="popup__title">Edit profile</h2>
-                <input type="text" class="input" id="userName" name="userN" placeholder="Name">
-                <input type="text" class="input" id="userJob" name="userJ" placeholder="About Me">
-                <button class="popup__button" type="submit">Save</button>
-                <button class="popup__close" type="submit"></button>
+                    <button class="popup__close" type="button"></button>
+                    <form action="#" name="popupF" id="popup__form">
+                        <input type="text" class="input" id="userName" name="userN" placeholder="Name">
+                        <input type="text" class="input" id="userJob" name="userJ" placeholder="About Me">
+                        <button class="popup__button" type="submit">Save</button>
+                    
             </form>
+            </div>
         </div>
         </main>
     </div>

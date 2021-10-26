@@ -11,5 +11,6 @@
     .profile{
         flex-direction: column;
         margin-bottom: 36px;
+        max-width: calc(100% - 38px);
     }
 }

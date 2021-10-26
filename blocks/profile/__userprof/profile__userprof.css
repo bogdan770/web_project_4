@@ -9,7 +9,9 @@
     margin: 0;
     padding-top: 16px;
     grid-area: description;
-
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 
@@ -19,5 +21,6 @@
         padding-top: 14px;
         line-height: 17px;
         font-size: 14px;
+        max-width: 282px;
     }
 }
