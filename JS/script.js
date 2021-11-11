@@ -105,7 +105,7 @@ function createCardElement(cardData){
     imageZoom.addEventListener('click',()=>{
       cardTemplateImage.classList.add("popup_display");
       cardTemplateImage.querySelector(".image-popup__title").textContent = cardData.name;
-      cardTemplateImage.querySelector(".image-popup__image").src = cardData.link; 
+      cardTemplateImage.querySelector(".image-popup__image").src = cardData.link;
       cardCloseButton.addEventListener('click', ()=>{
         cardTemplateImage.classList.remove("popup_display");
       });
