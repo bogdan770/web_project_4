@@ -17,62 +17,19 @@
                 <img class="profile__avatar" src="./images/image.jpg" alt="Jacques Cousteau">
                 <div class="profile__info">
                     <h1 class="profile__username">Jacques Cousteau</h1>
-                    <button class="profile__edit-button" type="button"></button>
+                    <button class="profile__edit-button transition" type="button"></button>
                     <p class="profile__userprof">Explorer</p>
                 </div>
-                <button class="profile__add-button" type="button"></button>
+                <button class="profile__add-button transition" type="button"></button>
             </section>
             <section class = "elements">
-                <ul class="elements__grid">
-                    <li class="element">
-                        <img class="element__image" src="./images/card__image-valey.jpg" alt="Yosemite Valley">
-                        <div class="element__conteiner">
-                            <h2 class="element__title">Yosemite Valley</h2>
-                            <button class="element__like" type="button"></button>
-                        </div>
-                    </li>
-                    <li class="element">
-                        <img class="element__image" src="./images/card__image-lake.jpg " alt="Lake Louise">
-                        <div class="element__conteiner">
-                            <h2 class="element__title">Lake Louise</h2>
-                            <button class="element__like" type="button"></button>
-                        </div>
-                    </li>
-                    <li class="element">
-                        <img class="element__image" src="./images/card__image-smoky.jpg" alt="Bald Mountains">
-                        <div class="element__conteiner">
-                            <h2 class="element__title">Bald Mountains</h2>
-                            <button class="element__like" type="button"></button>
-                        </div>
-                    </li>
-                    <li class="element">
-                        <img class="element__image" src="./images/card__image-latemar.jpg" alt="Latemar">
-                        <div class="element__conteiner">
-                            <h2 class="element__title">Latemar</h2>
-                            <button class="element__like" type="button"></button>
-                        </div>
-                    </li>
-                    <li class="element">
-                        <img class="element__image" src="./images/card__image-vanoise.jpg" alt="Vanoise Nationanal park">
-                        <div class="element__conteiner">
-                            <h2 class="element__title">Vanoise Nationanal park</h2>
-                            <button class="element__like" type="button"></button>
-                        </div>
-                    </li>
-                    <li class="element">
-                        <img class="element__image" src="./images/card__image-lago.jpg" alt="Lago di Braies">
-                        <div class="element__conteiner">
-                            <h2 class="element__title">Lago di Braies</h2>
-                            <button class="element__like" type="button"></button>
-                        </div>
-                    </li>
-                </ul>
+                <ul class="elements__grid"></ul>
             </section>
         <footer class="footer">
             <p class="footer__title">&copy; 2021 Around The U.S.</p>
         </footer>
         <!-- adding popup -->
-        <div class="popup">
+        <div class="popup popup_type_edit-profile">
             <div class="popup__box">
                 <h2 class="popup__title">Edit profile</h2>
                     <button class="popup__close" type="button"></button>
@@ -80,13 +37,45 @@
                         <input type="text" class="input" id="userName" name="userN" placeholder="Name">
                         <input type="text" class="input" id="userJob" name="userJ" placeholder="About Me">
                         <button class="popup__button" type="submit">Save</button>
-                    
-            </form>
+                    </form>
             </div>
+        </div>
+        <!-- adding secound popup -->
+        <div class="popup popup_type_add-card">
+            <div class="popup__box">
+                <h2 class="popup__title">New place</h2>
+                    <button class="popup__close" type="button"></button>
+                    <form action="#" name="popupF" id="popup__form">
+                        <input type="text" class="input" id="cardNameId" name="card-name" placeholder="Title">
+                        <input type="text" class="input" id="cardLinkId" name="card-link" placeholder="Image URL">
+                        <button class="popup__button popup__button_create-card" type="submit">Create</button>
+                    </form>
+            </div>
+        </div>
+<!-- popup box for new card -->
+        <div class="popup image-popup">
+            <form action="#" name="popupImg" id="popup__form-image">
+                <button class="image-popup__button-close popup__close transition" type="button"></button>
+                <img class="image-popup__image" src="#">
+                <p class="image-popup__title"></p>
+            </form>
         </div>
         </main>
     </div>
-<script src="JS/script.js"></script>
+
 <!-- adding JAVASCRIPT file -->
+<template id="card-template">
+    <li class="element transition">
+        <button class="element__delete transition"></button>
+        <div class="element__image"></div>
+        <div class="element__conteiner">
+            <h2 class="element__title"></h2>
+            <button class="element__like transition" type="button"></button>
+        </div>
+    </li>
+
+
+</template>
+<script src="../web_project_4/JS/script.js"></script>
 </body>
 </html>

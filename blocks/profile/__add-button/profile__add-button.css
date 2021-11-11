@@ -7,7 +7,6 @@
     padding: 0;
     margin-left: auto;
     cursor: pointer;
-    transition: opacity .5s ease-in-out;
     background-image: url(../../../images/plus.svg);
     background-repeat: no-repeat;
     background-position: center;

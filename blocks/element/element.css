@@ -2,5 +2,9 @@
     background-color: white;
     max-width: 282px;
     border-radius: 10px;
+    position: relative;
+}
 
+.element:hover{
+    transform: scale(1.1);
 }

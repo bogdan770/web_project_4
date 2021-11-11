@@ -8,9 +8,7 @@
     padding: 0;
     cursor: pointer;
     margin-left: 18px;
-    transition: opacity .5s ease-in-out;
-    grid-area: edit;
-    
+    grid-area: edit;   
 }
 
 .profile__edit-button:hover{
