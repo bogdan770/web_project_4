@@ -1,5 +1,4 @@
 .image-popup__button-close{
-    position: relative;
-    bottom: 10%;
-    left: 10%;
+    top: -7%;
+    left: 100%
 };
