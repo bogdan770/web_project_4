@@ -40,7 +40,7 @@ let popupCloseProfileButton = popupEditProfile.querySelector(".popup__close");
 let popupCloseCardButton = popupAddCard.querySelector(".popup__close");
 
 
-let formElement = document.querySelector("#popup__form"); 
+let formElement = document.querySelector(".popup__form"); 
 
 let nameInput = document.querySelector("#userName");
 let jobInput = document.querySelector("#userJob");
