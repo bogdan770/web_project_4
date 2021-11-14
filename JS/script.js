@@ -62,7 +62,7 @@ const cardCloseButton = cardTemplateImage.querySelector(".popup__close")
 
 const createCardButton = document.querySelector(".popup__button_create-card");
 
-
+//open and close popup functions
 function openPopup(popup){
   popup.classList.add("popup_display");
 }
@@ -71,11 +71,19 @@ function closePopup(popup){
 }
 
 
+addButton.addEventListener('click', () =>{
+  openPopup(popupAddCard);
+});
+
+//close buttons(below)
 popupCloseProfileButton.addEventListener('click', () =>{
   closePopup(popupEditProfile)
 });
 popupCloseCardButton.addEventListener('click', () =>{
   closePopup(popupAddCard)
+});
+cardCloseButton.addEventListener('click', () =>{
+  closePopup(cardTemplateImage);
 });
 
 editButton.addEventListener('click', () =>{ 
@@ -102,7 +110,7 @@ function createCardElement(cardData){
     const card = cardTemplate.cloneNode(true);
     card.querySelector(".element__title").textContent = cardData.name;
     card.querySelector(".element__image").style.backgroundImage = `url(${cardData.link})`;
-
+    
     card.querySelector(".element__like").addEventListener("click", function(evt){
         evt.target.classList.toggle("element__like_active");
     });//adding like
@@ -111,15 +119,12 @@ function createCardElement(cardData){
         card.remove()
          });//remove card
 
-    const imageZoom = card.querySelector(".element__image");
-    imageZoom.addEventListener('click',()=>{
+    card.querySelector(".element__image").addEventListener('click',()=>{
       openPopup(cardTemplateImage);
       cardTemplateImage.querySelector(".image-popup__title").textContent = cardData.name;
       cardTemplateImage.querySelector(".image-popup__image").src = cardData.link;
+      cardTemplateImage.querySelector(".image-popup__image").alt = cardData.name;
     });
-      cardCloseButton.addEventListener('click', ()=>{
-        closePopup(cardTemplateImage);
-      });
     return card;
     };
 
@@ -139,9 +144,6 @@ function addCardToPage(event){
 
 formAddCardElement.addEventListener('submit', addCardToPage);
 
-addButton.addEventListener('click', function() {popupAddCard.classList.add("popup_display")});
-
-
 initialCards.forEach(initialCardData =>{
     placesList.prepend(createCardElement(initialCardData));
-})
+});
