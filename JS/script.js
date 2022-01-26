@@ -72,6 +72,7 @@ function closePopup(popup){
 
 
 addButton.addEventListener('click', () =>{
+  checkInitialFormValidaty(popupAddCard.querySelector('form'), pageSettings)
   openPopup(popupAddCard);
 });
 
@@ -88,14 +89,13 @@ cardCloseButton.addEventListener('click', () =>{
 
 editButton.addEventListener('click', () =>{ 
     nameInput.value = userName.textContent; 
-    jobInput.value = userProf.textContent; 
+    jobInput.value = userProf.textContent;
     openPopup(popupEditProfile);
-    // adding new class to the popu
+    // adding new class to the popup
 }); 
 // editButton get 'click' from the user, and turn the popup form with context from the page to him.
 
 formProfileElement.addEventListener('submit',handleProfileFormSubmit);
-
 
 //function that remove the class from variable popupEditProfile, it's mean than popup is disappear
 function handleProfileFormSubmit(evt) {
@@ -147,3 +147,101 @@ formAddCardElement.addEventListener('submit', addCardToPage);
 initialCards.forEach(initialCardData =>{
     placesList.prepend(createCardElement(initialCardData));
 });
+
+
+
+
+document.body.addEventListener('keydown', (evt) => {
+  if (evt.key == 'Escape'){
+    if (popupAddCard.classList.contains('popup_display')){
+      closePopup(popupAddCard) 
+    }
+
+    if (popupEditProfile.classList.contains('popup_display')){
+      closePopup(popupEditProfile);
+    }
+
+    if (cardTemplateImage.classList.contains('popup__display')){
+      closePopup(cardTemplateImage);
+    }
+  }
+});
+
+// const popups = [...document.querySelectorAll('.popup__box')];
+// console.log(popups);
+// window.addEventListener('click', ({ target }) => {
+//   const popup = target.closest('.popup');
+//   console.log(popup);
+//   const clickedOnClosedPopup = popup && !popup.classList.contains('popup_display');
+//   console.log(clickedOnClosedPopup);
+//   popups.forEach(p => closePopup());
+  
+//   if (clickedOnClosedPopup)popup.classList.add('popup_display');  
+// });
+
+
+// const popupOpacity = document.querySelectorAll('.opacity');
+// console.log(popupOpacity);
+
+// function closePopupByClick(popupOpacity){
+//   popupOpacity.forEach(opacity => {
+//     if (opacity.parentElement.classList.contains('popup_display')){
+//       closePopup(popupAddCard);
+//     }
+//   });
+// }
+
+const popups = [...document.querySelectorAll('.popup')];
+const popupOpacity = document.querySelector('.opacity');
+console.log(popups);
+console.log(popupOpacity);
+
+popupOpacity.addEventListener('click', () => {
+  popupDisplay(popups)
+
+})
+
+//   popups.forEach(popup => {
+
+//     if (popup.classList.contains('popup__display')){
+//       closePopup(popup);
+//     }
+//   })
+// })
+
+
+const popupDisplay = (popups) => {
+  const havePopup = popups.some(popup => popup.classList.contains('popup__display'));
+
+  if (havePopup){
+    closePopup(popups);
+  }
+}
+
+
+// const toggleButtonState = (inputElements, buttonElement, settings) => {
+//   const hasInvalidInput = inputElements.some(inputElement => !inputElement.validity.valid);
+
+//   if (hasInvalidInput) {
+//     buttonElement.classList.add(settings.inactiveButtonClass);
+//   } else {
+//     buttonElement.classList.remove(settings.inactiveButtonClass);
+//   }
+// };
+
+
+// function enableValidation(settings) {
+//   const forms = document.querySelectorAll(settings.formSelector);
+
+//   forms.forEach(formElement => {
+//       formElement.addEventListener('submit', e => {
+//           e.preventDefault();
+//       });
+//       setEventListeners(formElement, settings);
+//   })
+
+// popupOpacity.addEventListener('click', () => {
+//   closePopupByClick(popupOpacity);
+// });
+
+

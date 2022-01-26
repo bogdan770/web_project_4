@@ -30,30 +30,37 @@
         </footer>
         <!-- adding popup -->
         <div class="popup popup_type_edit-profile">
+            <div class = "opacity"></div>
             <div class="popup__box">
                 <h2 class="popup__title">Edit profile</h2>
                     <button class="popup__close" type="button"></button>
-                    <form action="#" name="popupF" id="popup__form-edit" class="popup__form">
-                        <input type="text" class="input" id="userName" name="userN" placeholder="Name">
-                        <input type="text" class="input" id="userJob" name="userJ" placeholder="About Me">
+                    <form action="#" name="popupF" id="popup__form-edit" class="popup__form" novalidate>
+                        <input type="text" class="input" id="userName" name="userN" placeholder="Name" required minlength="2" maxlength="40">
+                        <span id="userName-error" class="popup__error"></span>
+                        <input type="text" class="input" id="userJob" name="userJ" placeholder="About Me" required minlength="2" maxlength="200">
+                        <span id="userJob-error" class="popup__error"></span>  
                         <button class="popup__button" type="submit">Save</button>
                     </form>
             </div>
         </div>
         <!-- adding secound popup -->
         <div class="popup popup_type_add-card">
+            <div class = "opacity"></div>
             <div class="popup__box">
                 <h2 class="popup__title">New place</h2>
                     <button class="popup__close" type="button"></button>
-                    <form action="#" name="popupF" id="popup__form-new" class="popup__form">
-                        <input type="text" class="input" id="cardNameId" name="card-name" placeholder="Title">
-                        <input type="text" class="input" id="cardLinkId" name="card-link" placeholder="Image URL">
+                    <form action="#" name="popupF" id="popup__form-new" class="popup__form" novalidate>
+                        <input type="text" class="input" id="cardNameId" name="card-name" placeholder="Title" required minlength="1" maxlength="30">
+                        <span id="cardNameId-error" class="popup__error"></span>
+                        <input type="url" class="input" id="cardLinkId" name="card-link" placeholder="Image URL" required>
+                        <span id="cardLinkId-error" class="popup__error"></span>
                         <button class="popup__button popup__button_create-card" type="submit">Create</button>
                     </form>
             </div>
         </div>
 <!-- popup box for new card -->
         <div class="popup image-popup">
+            <div class = "opacity"></div>
             <div class="popup__box-image">
                 <button class="image-popup__button-close popup__close transition" type="button"></button>
                 <img class="image-popup__image" alt="#" src="#">
@@ -76,6 +83,7 @@
 
 
 </template>
-<script src="./JS/script.js"></script>
+<script src="./JS/validate.js" defer></script>
+<script src="./JS/script.js" defer></script>
 </body>
 </html>

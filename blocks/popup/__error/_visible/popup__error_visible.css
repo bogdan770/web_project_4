@@ -1,0 +1,12 @@
+.popup__error_visible{
+    visibility: visible;
+    display: flex;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: red;
+    margin-left: 35px;
+    text-align: left;
+}
