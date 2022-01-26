@@ -167,81 +167,71 @@ document.body.addEventListener('keydown', (evt) => {
   }
 });
 
-// const popups = [...document.querySelectorAll('.popup__box')];
-// console.log(popups);
-// window.addEventListener('click', ({ target }) => {
-//   const popup = target.closest('.popup');
-//   console.log(popup);
-//   const clickedOnClosedPopup = popup && !popup.classList.contains('popup_display');
-//   console.log(clickedOnClosedPopup);
-//   popups.forEach(p => closePopup());
-  
-//   if (clickedOnClosedPopup)popup.classList.add('popup_display');  
-// });
-
-
-// const popupOpacity = document.querySelectorAll('.opacity');
-// console.log(popupOpacity);
-
-// function closePopupByClick(popupOpacity){
-//   popupOpacity.forEach(opacity => {
-//     if (opacity.parentElement.classList.contains('popup_display')){
-//       closePopup(popupAddCard);
-//     }
-//   });
-// }
 
 const popups = [...document.querySelectorAll('.popup')];
-const popupOpacity = document.querySelector('.opacity');
 console.log(popups);
-console.log(popupOpacity);
 
-popupOpacity.addEventListener('click', () => {
-  popupDisplay(popups)
+// const clickOverlay = document.querySelector('.opacity');
+// console.log(clickOverlay);
 
+const opacityEditProfile = popupEditProfile.querySelector('.opacity');
+console.log(opacityEditProfile)
+
+opacityEditProfile.addEventListener('click', () => {
+  popups.forEach(popup =>{
+    if(popup.classList.contains('popup_display')){
+      closePopup(popup);
+    }
+  }
+    )
 })
 
-//   popups.forEach(popup => {
+const opacityAddCard = popupAddCard.querySelector('.opacity');
+console.log(opacityAddCard)
 
-//     if (popup.classList.contains('popup__display')){
-//       closePopup(popup);
-//     }
-//   })
-// })
-
-
-const popupDisplay = (popups) => {
-  const havePopup = popups.some(popup => popup.classList.contains('popup__display'));
-
-  if (havePopup){
-    closePopup(popups);
+opacityAddCard.addEventListener('click', () => {
+  popups.forEach(popup =>{
+    if(popup.classList.contains('popup_display')){
+      closePopup(popup);
+    }
   }
-}
+    )
+})
+
+const opacityImagePopup = cardTemplateImage.querySelector('.opacity');
+console.log(opacityImagePopup)
+
+opacityImagePopup.addEventListener('click', () => {
+  popups.forEach(popup =>{
+    if(popup.classList.contains('popup_display')){
+      closePopup(popup);
+    }
+  }
+    )
+})
 
 
-// const toggleButtonState = (inputElements, buttonElement, settings) => {
-//   const hasInvalidInput = inputElements.some(inputElement => !inputElement.validity.valid);
-
-//   if (hasInvalidInput) {
-//     buttonElement.classList.add(settings.inactiveButtonClass);
-//   } else {
-//     buttonElement.classList.remove(settings.inactiveButtonClass);
+// function clicket (clickOverlay) {
+//   clickOverlay.forEach(overlay => {
+//     if(overlay.parentElement.classList.contains('popup_display')){
+//       console.log(overlay)
+//       return overlay;
+//     }
 //   }
-// };
+//     )
+// }
 
 
-// function enableValidation(settings) {
-//   const forms = document.querySelectorAll(settings.formSelector);
-
-//   forms.forEach(formElement => {
-//       formElement.addEventListener('submit', e => {
-//           e.preventDefault();
-//       });
-//       setEventListeners(formElement, settings);
-//   })
-
-// popupOpacity.addEventListener('click', () => {
-//   closePopupByClick(popupOpacity);
-// });
 
 
+// создать код для каждого попапа отдельно
+
+// clicks(clickOverlay);
+
+
+
+
+// popups.forEach(popup =>{
+//   console.log(popup.classList)
+// }
+//   )
