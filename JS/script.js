@@ -67,6 +67,7 @@ function openPopup(popup){
   popup.classList.add("popup_display");
 }
 function closePopup(popup){
+  
   popup.classList.remove('popup_display');
 }
 
@@ -161,7 +162,7 @@ document.body.addEventListener('keydown', (evt) => {
       closePopup(popupEditProfile);
     }
 
-    if (cardTemplateImage.classList.contains('popup__display')){
+    if (cardTemplateImage.classList.contains('popup_display')){
       closePopup(cardTemplateImage);
     }
   }
@@ -169,13 +170,9 @@ document.body.addEventListener('keydown', (evt) => {
 
 
 const popups = [...document.querySelectorAll('.popup')];
-console.log(popups);
 
-// const clickOverlay = document.querySelector('.opacity');
-// console.log(clickOverlay);
 
 const opacityEditProfile = popupEditProfile.querySelector('.opacity');
-console.log(opacityEditProfile)
 
 opacityEditProfile.addEventListener('click', () => {
   popups.forEach(popup =>{
@@ -187,7 +184,6 @@ opacityEditProfile.addEventListener('click', () => {
 })
 
 const opacityAddCard = popupAddCard.querySelector('.opacity');
-console.log(opacityAddCard)
 
 opacityAddCard.addEventListener('click', () => {
   popups.forEach(popup =>{
@@ -199,7 +195,6 @@ opacityAddCard.addEventListener('click', () => {
 })
 
 const opacityImagePopup = cardTemplateImage.querySelector('.opacity');
-console.log(opacityImagePopup)
 
 opacityImagePopup.addEventListener('click', () => {
   popups.forEach(popup =>{
@@ -209,29 +204,3 @@ opacityImagePopup.addEventListener('click', () => {
   }
     )
 })
-
-
-// function clicket (clickOverlay) {
-//   clickOverlay.forEach(overlay => {
-//     if(overlay.parentElement.classList.contains('popup_display')){
-//       console.log(overlay)
-//       return overlay;
-//     }
-//   }
-//     )
-// }
-
-
-
-
-// создать код для каждого попапа отдельно
-
-// clicks(clickOverlay);
-
-
-
-
-// popups.forEach(popup =>{
-//   console.log(popup.classList)
-// }
-//   )

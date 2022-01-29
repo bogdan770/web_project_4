@@ -10,7 +10,8 @@
     background-repeat: no-repeat;
     background-position: center;
     padding: 0;
-    margin-bottom: 36px;
+    position: absolute;
+    top: 230px;
 }
 
 
