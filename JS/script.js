@@ -72,12 +72,12 @@ const createCardButton = document.querySelector(".popup__button_create-card");
 //open and close popup functions
 function openPopup(popup){
   popup.classList.add("popup_display");
-  openModal(popup);
+  addEscapeListener();
 }
 
 function closePopup(popup){
   popup.classList.remove('popup_display');
-  closeModal(popup);
+  removeEscapeListener();
 }
 
 
@@ -172,11 +172,11 @@ function closeByEscape(evt){
   }
 }
 
-function openModal(modal){
+function addEscapeListener(){
     document.addEventListener('keydown', closeByEscape);
   }
   
 
-function closeModal(modal){
+function removeEscapeListener(){
   document.removeEventListener('keydown', closeByEscape);
 }
