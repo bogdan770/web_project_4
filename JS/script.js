@@ -52,23 +52,32 @@ const jobInput = document.querySelector("#userJob");
 const cardName = document.querySelector("#cardNameId");
 const cardImageLink = document.querySelector("#cardLinkId");
 
+// const popups = [...document.querySelectorAll('.popup')];
+const opacityEditProfile = popupEditProfile.querySelector('.opacity');
+
 
 
 //cards
 const cardTemplate = document.querySelector("#card-template").content.querySelector(".element");
 
 const cardTemplateImage = document.querySelector(".image-popup");
-const cardCloseButton = cardTemplateImage.querySelector(".popup__close")
+const imagePopupTitle = document.querySelector(".image-popup__title");
+const imagePopupImage = document.querySelector(".image-popup__image");
+const cardCloseButton = cardTemplateImage.querySelector(".popup__close");
+
+
 
 const createCardButton = document.querySelector(".popup__button_create-card");
 
 //open and close popup functions
 function openPopup(popup){
   popup.classList.add("popup_display");
+  openModal(popup);
 }
+
 function closePopup(popup){
-  
   popup.classList.remove('popup_display');
+  closeModal(popup);
 }
 
 
@@ -77,16 +86,19 @@ addButton.addEventListener('click', () =>{
   openPopup(popupAddCard);
 });
 
-//close buttons(below)
-popupCloseProfileButton.addEventListener('click', () =>{
-  closePopup(popupEditProfile)
-});
-popupCloseCardButton.addEventListener('click', () =>{
-  closePopup(popupAddCard)
-});
-cardCloseButton.addEventListener('click', () =>{
-  closePopup(cardTemplateImage);
-});
+const popups = document.querySelectorAll('.popup');
+
+  popups.forEach((popup) => {
+    popup.addEventListener('mousedown', (evt) => {
+      if(evt.target.classList.contains('popup_display')){
+        closePopup(popup)
+      }
+      if(evt.target.classList.contains('popup__close')){
+        closePopup(popup)
+      }
+    })
+  });
+
 
 editButton.addEventListener('click', () =>{ 
     nameInput.value = userName.textContent; 
@@ -109,8 +121,9 @@ function handleProfileFormSubmit(evt) {
 
 function createCardElement(cardData){
     const card = cardTemplate.cloneNode(true);
+    const cardImage = card.querySelector(".element__image");
     card.querySelector(".element__title").textContent = cardData.name;
-    card.querySelector(".element__image").style.backgroundImage = `url(${cardData.link})`;
+    cardImage.style.backgroundImage = `url(${cardData.link})`;
     
     card.querySelector(".element__like").addEventListener("click", function(evt){
         evt.target.classList.toggle("element__like_active");
@@ -120,11 +133,11 @@ function createCardElement(cardData){
         card.remove()
          });//remove card
 
-    card.querySelector(".element__image").addEventListener('click',()=>{
+    cardImage.addEventListener('click', ()=>{
       openPopup(cardTemplateImage);
-      cardTemplateImage.querySelector(".image-popup__title").textContent = cardData.name;
-      cardTemplateImage.querySelector(".image-popup__image").src = cardData.link;
-      cardTemplateImage.querySelector(".image-popup__image").alt = cardData.name;
+      imagePopupTitle.textContent = cardData.name;
+      imagePopupImage.src = cardData.link;
+      imagePopupImage.alt = cardData.name;
     });
     return card;
     };
@@ -152,55 +165,18 @@ initialCards.forEach(initialCardData =>{
 
 
 
-document.body.addEventListener('keydown', (evt) => {
-  if (evt.key == 'Escape'){
-    if (popupAddCard.classList.contains('popup_display')){
-      closePopup(popupAddCard) 
-    }
-
-    if (popupEditProfile.classList.contains('popup_display')){
-      closePopup(popupEditProfile);
-    }
-
-    if (cardTemplateImage.classList.contains('popup_display')){
-      closePopup(cardTemplateImage);
-    }
+function closeByEscape(evt){
+  if(evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_display')
+    closePopup(openedPopup);
   }
-});
+}
 
-
-const popups = [...document.querySelectorAll('.popup')];
-
-
-const opacityEditProfile = popupEditProfile.querySelector('.opacity');
-
-opacityEditProfile.addEventListener('click', () => {
-  popups.forEach(popup =>{
-    if(popup.classList.contains('popup_display')){
-      closePopup(popup);
-    }
+function openModal(modal){
+    document.addEventListener('keydown', closeByEscape);
   }
-    )
-})
+  
 
-const opacityAddCard = popupAddCard.querySelector('.opacity');
-
-opacityAddCard.addEventListener('click', () => {
-  popups.forEach(popup =>{
-    if(popup.classList.contains('popup_display')){
-      closePopup(popup);
-    }
-  }
-    )
-})
-
-const opacityImagePopup = cardTemplateImage.querySelector('.opacity');
-
-opacityImagePopup.addEventListener('click', () => {
-  popups.forEach(popup =>{
-    if(popup.classList.contains('popup_display')){
-      closePopup(popup);
-    }
-  }
-    )
-})
+function closeModal(modal){
+  document.removeEventListener('keydown', closeByEscape);
+}
