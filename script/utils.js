@@ -24,9 +24,7 @@ function closeByEscape(evt){
 }
 
 const closeButtons = document.querySelectorAll('.popup__close');
-console.log(closeButtons);
 closeButtons.forEach(closeButton => closeButton.addEventListener('click', () => {
     const popup = closeButton.closest('.popup');
-    console.log(popup);
     closePopup(popup);
 }));

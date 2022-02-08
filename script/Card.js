@@ -47,20 +47,9 @@ export default class Card {
         openPopup(cardTemplateImage);
     }
 
-    _handleClosePopup() {
-        imagePopupImage.src = "";
-        imagePopupImage.alt = "";
-        imagePopupTitle.textContent = "";
-        cardTemplateImage.classList.remove("popup_display");
-    }
-
     _setEventListeners() { 
         this._element.querySelector(".element__image").addEventListener("click", () => {
           this._handleOpenPopup()
-        });
-      
-        cardCloseButton.addEventListener("click", () => {
-          this._handleClosePopup()
         });
 
         const likeButton = this._element.querySelector(".element__like");

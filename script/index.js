@@ -40,8 +40,8 @@ const settings = {
 const popupEditProfile = document.querySelector(".popup_type_edit-profile");
 const popupAddCard = document.querySelector(".popup_type_add-card");
 
-const editFormValidator = new FormValidator(settings, popupEditProfile)
-const cardFormValidator = new FormValidator(settings, popupAddCard)
+const editFormValidator = new FormValidator(settings, popupEditProfile);
+const cardFormValidator = new FormValidator(settings, popupAddCard);
 
 editFormValidator.enableValidation();
 cardFormValidator.enableValidation();
@@ -55,10 +55,8 @@ const placesList = document.querySelector(".elements__grid");
 const editButton = document.querySelector(".profile__edit-button");
 const addButton = document.querySelector(".profile__add-button");
 
-
 const formProfileElement = popupEditProfile.querySelector("#popup__form-edit");
 const formAddCardElement = popupAddCard.querySelector("#popup__form-new");
-
 
 const nameInput = document.querySelector("#userName");
 const jobInput = document.querySelector("#userJob");
@@ -66,7 +64,6 @@ const jobInput = document.querySelector("#userJob");
 //getting inputs from popup that add card
 const cardName = document.querySelector("#cardNameId");
 const cardImageLink = document.querySelector("#cardLinkId");
-
 
 //cards
 const cardTemplate = document.querySelector("#card-template").content.querySelector(".element");
@@ -76,14 +73,8 @@ const imagePopupTitle = document.querySelector(".image-popup__title");
 const imagePopupImage = document.querySelector(".image-popup__image");
 const cardCloseButton = cardTemplateImage.querySelector(".popup__close");
 
-
-
-addButton.addEventListener('click', () =>{
-  openPopup(popupAddCard)
-});
-
-
-editButton.addEventListener('click', () =>{ 
+editButton.addEventListener('click', () =>{
+    editFormValidator.resetValidation();
     nameInput.value = userName.textContent; 
     jobInput.value = userProf.textContent;
     openPopup(popupEditProfile);
@@ -98,28 +89,27 @@ function handleProfileFormSubmit(evt) {
     closePopup(popupEditProfile);
 };
 
-
-const renderCard = (data) => {
-  const card = new Card(data, "#card-template")
+function createCard(item){
+  const card = new Card(item, "#card-template")
   placesList.prepend(card.generateCard());
-}
+};
 
-function addCardToPage(evt){
+initialCards.forEach((initialCard) => {
+  createCard(initialCard, "#card-template");
+});
+
+addButton.addEventListener('click', () =>{
+  cardFormValidator.resetValidation();
+  openPopup(popupAddCard)
+});
+
+formAddCardElement.addEventListener('submit' ,(evt) =>{
   evt.preventDefault();
-  renderCard({
+  createCard({
     title: cardName.value,
     image: cardImageLink.value
   });
   closePopup(popupAddCard);
   cardName.value = "",
   cardImageLink.value = ""
-};
-
-formAddCardElement.addEventListener('submit', addCardToPage);
-
-initialCards.forEach((initialCard) => {
-  const card = new Card(initialCard, "#card-template");
-  const cardElement = card.generateCard();
-
-  document.querySelector(".elements__grid").prepend(cardElement);
 });
