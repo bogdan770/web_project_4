@@ -1,85 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./pages/index.css">
-    <title>Around The U.S.</title>   
-</head>
-<body class="body">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Around The U.S.</title>
+  </head>
+  <body class="body">
     <div class="shell">
-        <header class="header">
-            <img class="header__logo" src="./images/around.svg" alt="Main logo of website">
-        </header>
-        <main class="page">
-            <section class = "profile">
-                <img class="profile__avatar" src="./images/image.jpg" alt="Jacques Cousteau">
-                <div class="profile__info">
-                    <h1 class="profile__username">Jacques Cousteau</h1>
-                    <button class="profile__edit-button transition" type="button"></button>
-                    <p class="profile__userprof">Explorer</p>
-                </div>
-                <button class="profile__add-button transition" type="button"></button>
-            </section>
-            <section class = "elements">
-                <ul class="elements__grid"></ul>
-            </section>
+      <header class="header">
+        <img
+          class="header__logo"
+          src="./images/around.svg"
+          alt="Main logo of website"
+        />
+      </header>
+      <main class="page">
+        <section class="profile">
+          <img
+            class="profile__avatar"
+            src="./images/image.jpg"
+            alt="Jacques Cousteau"
+          />
+          <div class="profile__info">
+            <h1 class="profile__username">Jacques Cousteau</h1>
+            <button
+              class="profile__edit-button transition"
+              type="button"
+            ></button>
+            <p class="profile__userprof">Explorer</p>
+          </div>
+          <button class="profile__add-button transition" type="button"></button>
+        </section>
+        <section class="elements">
+          <ul class="elements__grid"></ul>
+        </section>
         <footer class="footer">
-            <p class="footer__title">&copy; 2021 Around The U.S.</p>
+          <p class="footer__title">&copy; 2021 Around The U.S.</p>
         </footer>
         <!-- adding popup -->
         <div class="popup popup_type_edit-profile">
-            <div class="popup__box">
-                <h2 class="popup__title">Edit profile</h2>
-                    <button class="popup__close" type="button"></button>
-                    <form action="#" name="popupF" id="popup__form-edit" class="popup__form" novalidate>
-                        <input type="text" class="input" id="userName" name="userN" placeholder="Name" required minlength="2" maxlength="40">
-                        <span id="userName-error" class="popup__error"></span>
-                        <input type="text" class="input" id="userJob" name="userJ" placeholder="About Me" required minlength="2" maxlength="200">
-                        <span id="userJob-error" class="popup__error"></span>  
-                        <button class="popup__button" type="submit">Save</button>
-                    </form>
-            </div>
+          <div class="popup__box">
+            <h2 class="popup__title">Edit profile</h2>
+            <button class="popup__close" type="button"></button>
+            <form
+              action="#"
+              name="popupF"
+              id="popup__form-edit"
+              class="popup__form"
+              novalidate
+            >
+              <input
+                type="text"
+                class="input"
+                id="userName"
+                name="userN"
+                placeholder="Name"
+                required
+                minlength="2"
+                maxlength="40"
+              />
+              <span id="userName-error" class="popup__error"></span>
+              <input
+                type="text"
+                class="input"
+                id="userJob"
+                name="userJ"
+                placeholder="About Me"
+                required
+                minlength="2"
+                maxlength="200"
+              />
+              <span id="userJob-error" class="popup__error"></span>
+              <button class="popup__button" type="submit">Save</button>
+            </form>
+          </div>
         </div>
         <!-- adding secound popup -->
         <div class="popup popup_type_add-card">
-            <div class="popup__box">
-                <h2 class="popup__title">New place</h2>
-                    <button class="popup__close" type="button"></button>
-                    <form action="#" name="popupF" id="popup__form-new" class="popup__form" novalidate>
-                        <input type="text" class="input" id="cardNameId" name="card-name" placeholder="Title" required minlength="1" maxlength="30">
-                        <span id="cardNameId-error" class="popup__error"></span>
-                        <input type="url" class="input" id="cardLinkId" name="card-link" placeholder="Image URL" required>
-                        <span id="cardLinkId-error" class="popup__error"></span>
-                        <button class="popup__button popup__button_create-card" type="submit">Create</button>
-                    </form>
-            </div>
+          <div class="popup__box">
+            <h2 class="popup__title">New place</h2>
+            <button class="popup__close" type="button"></button>
+            <form
+              action="#"
+              name="popupF"
+              id="popup__form-new"
+              class="popup__form"
+              novalidate
+            >
+              <input
+                type="text"
+                class="input"
+                id="cardNameId"
+                name="card-name"
+                placeholder="Title"
+                required
+                minlength="1"
+                maxlength="30"
+              />
+              <span id="cardNameId-error" class="popup__error"></span>
+              <input
+                type="url"
+                class="input"
+                id="cardLinkId"
+                name="card-link"
+                placeholder="Image URL"
+                required
+              />
+              <span id="cardLinkId-error" class="popup__error"></span>
+              <button
+                class="popup__button popup__button_create-card"
+                type="submit"
+              >
+                Create
+              </button>
+            </form>
+          </div>
         </div>
-<!-- popup box for new card -->
+        <!-- popup box for new card -->
         <div class="popup image-popup">
-            <div class="popup__box-image">
-                <button class="image-popup__button-close popup__close transition" type="button"></button>
-                <img class="image-popup__image" alt="#" src="https://code.s3.yandex.net/web-code/yosemite.jpg">
-                <p class="image-popup__title"></p>
-            </div>
+          <div class="popup__box-image">
+            <button
+              class="image-popup__button-close popup__close transition"
+              type="button"
+            ></button>
+            <img
+              class="image-popup__image"
+              alt="#"
+              src="https://code.s3.yandex.net/web-code/yosemite.jpg"
+            />
+            <p class="image-popup__title"></p>
+          </div>
         </div>
-        </main>
+      </main>
     </div>
 
-<!-- adding JAVASCRIPT file -->
-<template id="card-template">
-    <li class="element transition">
+    <!-- adding JAVASCRIPT file -->
+    <template id="card-template">
+      <li class="element transition">
         <button class="element__delete transition"></button>
         <div class="element__image"></div>
         <div class="element__conteiner">
-            <h2 class="element__title"></h2>
-            <button class="element__like transition" type="button"></button>
+          <h2 class="element__title"></h2>
+          <button class="element__like transition" type="button"></button>
         </div>
-    </li>
-
-
-</template>
-<script type="module" src="./script/index.js"></script>
-</body>
+      </li>
+    </template>
+  </body>
 </html>

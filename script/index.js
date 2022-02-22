@@ -1,32 +1,34 @@
 import FormValidator from "./FormValidator.js";
 import Card from "./Card.js";
-import {openPopup, closePopup} from "./utils.js";
+import { openPopup, closePopup } from "./utils.js";
+import "../pages/index.css";
+import { PopupWithImage } from "./PopupWithImage.js";
 
 const initialCards = [
   {
     title: "Yosemite Valley",
-    image: "https://code.s3.yandex.net/web-code/yosemite.jpg"
+    image: "https://code.s3.yandex.net/web-code/yosemite.jpg",
   },
   {
     title: "Lake Louise",
-    image: "https://code.s3.yandex.net/web-code/lake-louise.jpg"
+    image: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
   },
   {
     title: "Bald Mountains",
-    image: "https://code.s3.yandex.net/web-code/bald-mountains.jpg"
+    image: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
   },
   {
     title: "Latemar",
-    image: "https://code.s3.yandex.net/web-code/latemar.jpg"
+    image: "https://code.s3.yandex.net/web-code/latemar.jpg",
   },
   {
     title: "Vanoise National Park",
-    image: "https://code.s3.yandex.net/web-code/vanoise.jpg"
+    image: "https://code.s3.yandex.net/web-code/vanoise.jpg",
   },
   {
     title: "Lago di Braies",
-    image: "https://code.s3.yandex.net/web-code/lago.jpg"
-  }
+    image: "https://code.s3.yandex.net/web-code/lago.jpg",
+  },
 ];
 
 const settings = {
@@ -34,8 +36,8 @@ const settings = {
   submitButtonSelector: ".popup__button",
   inactiveButtonClass: "popup__button_disabled",
   inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible"
-}
+  errorClass: "popup__error_visible",
+};
 
 const popupEditProfile = document.querySelector(".popup_type_edit-profile");
 const popupAddCard = document.querySelector(".popup_type_add-card");
@@ -66,50 +68,54 @@ const cardName = document.querySelector("#cardNameId");
 const cardImageLink = document.querySelector("#cardLinkId");
 
 //cards
-const cardTemplate = document.querySelector("#card-template").content.querySelector(".element");
+const cardTemplate = document
+  .querySelector("#card-template")
+  .content.querySelector(".element");
 
 const cardTemplateImage = document.querySelector(".image-popup");
 const imagePopupTitle = document.querySelector(".image-popup__title");
 const imagePopupImage = document.querySelector(".image-popup__image");
 const cardCloseButton = cardTemplateImage.querySelector(".popup__close");
 
-editButton.addEventListener('click', () =>{
-    editFormValidator.resetValidation();
-    nameInput.value = userName.textContent; 
-    jobInput.value = userProf.textContent;
-    openPopup(popupEditProfile);
-}); 
+const imagePopup = new PopupWithImage(".image-popup");
+imagePopup.setEventListeners();
 
-formProfileElement.addEventListener('submit',handleProfileFormSubmit);
+editButton.addEventListener("click", () => {
+  editFormValidator.resetValidation();
+  nameInput.value = userName.textContent;
+  jobInput.value = userProf.textContent;
+  openPopup(popupEditProfile);
+});
+
+formProfileElement.addEventListener("submit", handleProfileFormSubmit);
 
 function handleProfileFormSubmit(evt) {
-    evt.preventDefault()
-    userName.textContent = nameInput.value;
-    userProf.textContent = jobInput.value;
-    closePopup(popupEditProfile);
-};
+  evt.preventDefault();
+  userName.textContent = nameInput.value;
+  userProf.textContent = jobInput.value;
+  closePopup(popupEditProfile);
+}
 
-function createCard(item){
-  const card = new Card(item, "#card-template")
+function createCard(item) {
+  const card = new Card(item, "#card-template", imagePopup.open);
   placesList.prepend(card.generateCard());
-};
+}
 
 initialCards.forEach((initialCard) => {
   createCard(initialCard, "#card-template");
 });
 
-addButton.addEventListener('click', () =>{
+addButton.addEventListener("click", () => {
   cardFormValidator.resetValidation();
-  openPopup(popupAddCard)
+  openPopup(popupAddCard);
 });
 
-formAddCardElement.addEventListener('submit' ,(evt) =>{
+formAddCardElement.addEventListener("submit", (evt) => {
   evt.preventDefault();
   createCard({
     title: cardName.value,
-    image: cardImageLink.value
+    image: cardImageLink.value,
   });
   closePopup(popupAddCard);
-  cardName.value = "",
-  cardImageLink.value = ""
+  (cardName.value = ""), (cardImageLink.value = "");
 });
