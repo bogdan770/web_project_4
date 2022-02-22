@@ -10,8 +10,8 @@ export class PopupWithImage extends Popup {
     const titleElement = this._popup.querySelector(".image-popup__title");
 
     imageElement.src = image;
-    imageElement.alt = `Image ${image}`;
-    titleElement.textcontent = title;
+    imageElement.alt = `Image ${title}`;
+    titleElement.textContent = title;
 
     this._popup.classList.add("popup_display");
     document.addEventListener("keyup", this._handleEscClose);

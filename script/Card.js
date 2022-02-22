@@ -1,5 +1,3 @@
-import { openPopup } from "./utils.js";
-
 export default class Card {
   constructor(data, cardSelector, onImageClick) {
     this._title = data.title;

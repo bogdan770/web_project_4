@@ -67,15 +67,15 @@ const jobInput = document.querySelector("#userJob");
 const cardName = document.querySelector("#cardNameId");
 const cardImageLink = document.querySelector("#cardLinkId");
 
-//cards
-const cardTemplate = document
-  .querySelector("#card-template")
-  .content.querySelector(".element");
+// //cards
+// const cardTemplate = document
+//   .querySelector("#card-template")
+//   .content.querySelector(".element");
 
-const cardTemplateImage = document.querySelector(".image-popup");
-const imagePopupTitle = document.querySelector(".image-popup__title");
-const imagePopupImage = document.querySelector(".image-popup__image");
-const cardCloseButton = cardTemplateImage.querySelector(".popup__close");
+// const cardTemplateImage = document.querySelector(".image-popup");
+// const imagePopupTitle = document.querySelector(".image-popup__title");
+// const imagePopupImage = document.querySelector(".image-popup__image");
+// const cardCloseButton = cardTemplateImage.querySelector(".popup__close");
 
 const imagePopup = new PopupWithImage(".image-popup");
 imagePopup.setEventListeners();

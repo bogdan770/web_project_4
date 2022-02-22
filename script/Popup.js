@@ -24,11 +24,11 @@ export class Popup {
     document.removeEventListener("keyup", this._handleEscClose);
   }
 
-  _handleEscClose(e) {
+  _handleEscClose = (e) => {
     e.preventDefault();
 
-    if (e.key === "Escape") {
+    if (e.key == "Escape") {
       this.close();
     }
-  }
+  };
 }
