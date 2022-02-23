@@ -1,8 +1,17 @@
-import FormValidator from "./FormValidator.js";
-import Card from "./Card.js";
-import { openPopup, closePopup } from "./utils.js";
+import Card from "./Card";
 import "../pages/index.css";
-import { PopupWithImage } from "./PopupWithImage.js";
+import { PopupWithImage } from "./PopupWithImage";
+import { PopupWithForm } from "./PopupWithForm";
+
+const imagePopup = new PopupWithImage(".image-popup", () => {
+  console.log("!!!");
+});
+imagePopup.setEventListeners();
+
+const editPopup = new PopupWithForm(".popup_type_edit-profile", () => {
+  console.log("!!!");
+});
+editPopup.setEventListeners();
 
 const initialCards = [
   {
@@ -42,11 +51,11 @@ const settings = {
 const popupEditProfile = document.querySelector(".popup_type_edit-profile");
 const popupAddCard = document.querySelector(".popup_type_add-card");
 
-const editFormValidator = new FormValidator(settings, popupEditProfile);
-const cardFormValidator = new FormValidator(settings, popupAddCard);
+// const editFormValidator = new FormValidator(settings, popupEditProfile);
+// const cardFormValidator = new FormValidator(settings, popupAddCard);
 
-editFormValidator.enableValidation();
-cardFormValidator.enableValidation();
+// editFormValidator.enableValidation();
+// cardFormValidator.enableValidation();
 
 const userName = document.querySelector(".profile__username");
 const userProf = document.querySelector(".profile__userprof");
@@ -77,14 +86,12 @@ const cardImageLink = document.querySelector("#cardLinkId");
 // const imagePopupImage = document.querySelector(".image-popup__image");
 // const cardCloseButton = cardTemplateImage.querySelector(".popup__close");
 
-const imagePopup = new PopupWithImage(".image-popup");
-imagePopup.setEventListeners();
-
 editButton.addEventListener("click", () => {
-  editFormValidator.resetValidation();
-  nameInput.value = userName.textContent;
-  jobInput.value = userProf.textContent;
-  openPopup(popupEditProfile);
+  // editFormValidator.resetValidation();
+  // nameInput.value = userName.textContent;
+  // jobInput.value = userProf.textContent;
+  // openPopup(popupEditProfile);
+  editPopup.open();
 });
 
 formProfileElement.addEventListener("submit", handleProfileFormSubmit);

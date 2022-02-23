@@ -1,11 +1,11 @@
 export default class Card {
-  constructor(data, cardSelector, onImageClick) {
+  constructor(data, cardSelector, handleCardClick) {
     this._title = data.title;
     this._image = data.image;
 
     this._cardSelector = cardSelector;
 
-    this._onImageClick = onImageClick;
+    this._handleCardClick = handleCardClick;
   }
 
   _handleLikeIcon(evt) {
@@ -37,7 +37,7 @@ export default class Card {
   }
 
   _handleOpenPopup() {
-    this._onImageClick({ image: this._image, title: this._title });
+    this._handleCardClick({ image: this._image, title: this._title });
   }
 
   _setEventListeners() {
