@@ -16,24 +16,6 @@ const formAddCardElement = popupAddCard.querySelector("#popup__form-new");
 const nameInput = document.querySelector("#userName");
 const jobInput = document.querySelector("#userJob");
 
-const section = new Section({ items: [], renderer: () => {} }, "");
-
-section.render();
-
-const userInfo = new UserInfo({
-  userName: ".profile__username",
-  userJob: ".profile__userprof",
-});
-
-const imagePopup = new PopupWithImage(".image-popup");
-imagePopup.setEventListeners();
-
-const editPopup = new PopupWithForm(".popup_type_edit-profile");
-editPopup.setEventListeners();
-
-const addCard = new PopupWithForm(".popup_type_add-card");
-addCard.setEventListeners();
-
 const initialCards = [
   {
     title: "Yosemite Valley",
@@ -61,6 +43,15 @@ const initialCards = [
   },
 ];
 
+const imagePopup = new PopupWithImage(".image-popup");
+imagePopup.setEventListeners();
+
+const editPopup = new PopupWithForm(".popup_type_edit-profile");
+editPopup.setEventListeners();
+
+const addCard = new PopupWithForm(".popup_type_add-card");
+addCard.setEventListeners();
+
 const settings = {
   inputSelector: ".input",
   submitButtonSelector: ".popup__button",
@@ -78,6 +69,27 @@ cardFormValidator.enableValidation();
 //getting inputs from popup that add card
 const cardName = document.querySelector("#cardNameId");
 const cardImageLink = document.querySelector("#cardLinkId");
+
+function createCard(item) {
+  const card = new Card(item, "#card-template", imagePopup.open);
+  placesList.prepend(card.generateCard());
+}
+
+const section = new Section(
+  {
+    items: initialCards,
+    renderer: (data) => {
+      createCard(data);
+    },
+  },
+  ".element"
+);
+section.render();
+
+const userInfo = new UserInfo({
+  userName: ".profile__username",
+  userJob: ".profile__userprof",
+});
 
 //opening popup form with profile and filling it by data from the page
 editButton.addEventListener("click", () => {
@@ -111,12 +123,4 @@ formAddCardElement.addEventListener("submit", (evt) => {
   });
   addCard.close();
   (cardName.value = ""), (cardImageLink.value = "");
-});
-
-function createCard(item) {
-  const card = new Card(item, "#card-template", imagePopup.open);
-  placesList.prepend(card.generateCard());
-}
-initialCards.forEach((initialCard) => {
-  createCard(initialCard, "#card-template");
 });
