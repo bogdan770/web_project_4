@@ -1,10 +1,10 @@
-import FormValidator from "./FormValidator";
-import Card from "./Card";
-import "../pages/index.css";
-import { PopupWithImage } from "./PopupWithImage";
-import { PopupWithForm } from "./PopupWithForm";
-import { UserInfo } from "./UserInfo";
-import { Section } from "./Section";
+import FormValidator from "../script/FormValidator";
+import Card from "../script/Card";
+import "./index.css";
+import { PopupWithImage } from "../script/PopupWithImage";
+import { PopupWithForm } from "../script/PopupWithForm";
+import { UserInfo } from "../script/UserInfo";
+import { Section } from "../script/Section";
 
 const popupEditProfile = document.querySelector(".popup_type_edit-profile");
 const popupAddCard = document.querySelector(".popup_type_add-card");
