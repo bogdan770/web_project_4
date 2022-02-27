@@ -45,20 +45,22 @@ cardFormValidator.enableValidation();
 const cardName = document.querySelector("#cardNameId");
 const cardImageLink = document.querySelector("#cardLinkId");
 
-function createCard(item) {
-  const card = new Card(item, "#card-template", imagePopup.open);
-  console.log(card);
-  // placesList.prepend(card.generateCard());
-}
+// function createCard(item) {
+//   const card = new Card(item, "#card-template", imagePopup.open);
+//   console.log(card);
+//   placesList.prepend(card.generateCard());
+// }
 
 const section = new Section(
   {
     items: initialCards,
-    renderer: (data) => {
-      createCard(data);
+    renderer: (item) => {
+      const card = new Card(item, "#card-template", imagePopup.open);
+      const cardElement = card.generateCard();
+      section.addItem(cardElement);
     },
   },
-  ".element"
+  ".elements__grid"
 );
 section.render();
 

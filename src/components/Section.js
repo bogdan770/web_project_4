@@ -6,9 +6,8 @@ export class Section {
     this._container = document.querySelector(containerSelector);
   }
 
-  addItem(item) {
-    const card = this._renderer(item);
-    this._container.prepend(card);
+  addItem(element) {
+    this._container.append(element);
   }
 
   render() {
