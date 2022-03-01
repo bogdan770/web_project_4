@@ -16,16 +16,41 @@ import {
   nameInput,
   jobInput,
   initialCards,
+  cardName,
+  cardImageLink,
 } from "../utils/constans";
+
+const userInfo = new UserInfo({
+  userName: ".profile__username",
+  userJob: ".profile__userprof",
+});
 
 const imagePopup = new PopupWithImage(".image-popup");
 imagePopup.setEventListeners();
 
-const editPopup = new PopupWithForm(".popup_type_edit-profile");
+const editPopup = new PopupWithForm(
+  ".popup_type_edit-profile",
+  submitProfileForm
+);
 editPopup.setEventListeners();
 
-const addCard = new PopupWithForm(".popup_type_add-card");
-addCard.setEventListeners();
+function submitProfileForm() {
+  const name = document.querySelector("#userName");
+  const job = document.querySelector("#userJob");
+  userInfo.setUserInfo({
+    name: name.value,
+    job: job.value,
+  });
+  editPopup.close();
+}
+
+editButton.addEventListener("click", () => {
+  editFormValidator.resetValidation();
+  const data = userInfo.getUserInfo();
+  nameInput.value = data.name;
+  jobInput.value = data.job;
+  editPopup.open();
+});
 
 const settings = {
   inputSelector: ".input",
@@ -41,61 +66,36 @@ const cardFormValidator = new FormValidator(settings, popupAddCard);
 editFormValidator.enableValidation();
 cardFormValidator.enableValidation();
 
-//getting inputs from popup that add card
-const cardName = document.querySelector("#cardNameId");
-const cardImageLink = document.querySelector("#cardLinkId");
-
-function createCard(item) {
-  const card = new Card(item, "#card-template", imagePopup.open);
-  console.log(card);
-  // placesList.prepend(card.generateCard());
-}
+const createCard = (item) => {
+  return new Card(item, "#card-template", imagePopup.open);
+};
 
 const section = new Section(
   {
     items: initialCards,
-    renderer: (data) => {
-      createCard(data);
+    renderer: (item) => {
+      const card = createCard(item);
+      section.addItem(card.generateCard());
     },
   },
-  ".element"
+  ".elements__grid"
 );
 section.render();
 
-const userInfo = new UserInfo({
-  userName: ".profile__username",
-  userJob: ".profile__userprof",
+const addCard = new PopupWithForm(".popup_type_add-card", (data) => {
+  const cardData = {
+    name: data.title,
+    link: data["img-link"],
+  };
+  console.log(cardData);
+  const card = createCard(cardData);
+
+  section.addItem(card.generateCard());
 });
 
-//opening popup form with profile and filling it by data from the page
-editButton.addEventListener("click", () => {
-  editFormValidator.resetValidation();
-  const data = userInfo.getUserInfo();
-  nameInput.value = data.name;
-  jobInput.value = data.job;
-  editPopup.open();
-});
+addCard.setEventListeners();
 
-//changing information of the user on page
-formProfileElement.addEventListener("submit", (evt) => {
-  evt.preventDefault();
-  userInfo._userName.textContent = nameInput.value;
-  userInfo._userJob.textContent = jobInput.value;
-  editPopup.close();
-});
-
-//opening popup with new card
 addButton.addEventListener("click", () => {
   cardFormValidator.resetValidation();
   addCard.open();
-});
-
-//creating a new card
-formAddCardElement.addEventListener("submit", (evt) => {
-  evt.preventDefault();
-  createCard({
-    title: cardName.value,
-    image: cardImageLink.value,
-  });
-  addCard.close();
 });
