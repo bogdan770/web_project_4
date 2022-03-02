@@ -6,14 +6,9 @@ export class PopupWithImage extends Popup {
   }
 
   open = ({ image, title }) => {
-    const imageElement = this._popup.querySelector(".image-popup__image");
-    const titleElement = this._popup.querySelector(".image-popup__title");
-
-    imageElement.src = image;
-    imageElement.alt = `Image ${title}`;
-    titleElement.textContent = title;
-
-    this._popup.classList.add("popup_display");
-    document.addEventListener("keyup", this._handleEscClose);
+    this._popup.querySelector(".image-popup__image").src = image;
+    this._popup.querySelector(".image-popup__image").alt = `Image ${title}`;
+    this._popup.querySelector(".image-popup__title").textContent = title;
+    super.open();
   };
 }

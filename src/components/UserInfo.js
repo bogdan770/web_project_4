@@ -11,9 +11,8 @@ export class UserInfo {
     };
   }
 
-  setUserInfo({ name, job }) {
-    console.log("das");
-    this._userName.textContent = name;
+  setUserInfo({ userN: name, userJ: job }) {
     this._userJob.textContent = job;
+    this._userName.textContent = name;
   }
 }

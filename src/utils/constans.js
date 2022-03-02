@@ -7,6 +7,8 @@ const formProfileElement = popupEditProfile.querySelector("#popup__form-edit");
 const formAddCardElement = popupAddCard.querySelector("#popup__form-new");
 const nameInput = document.querySelector("#userName");
 const jobInput = document.querySelector("#userJob");
+const cardName = document.querySelector("#cardNameId");
+const cardImageLink = document.querySelector("#cardLinkId");
 
 const initialCards = [
   {
@@ -46,4 +48,6 @@ export {
   nameInput,
   jobInput,
   initialCards,
+  cardName,
+  cardImageLink,
 };
