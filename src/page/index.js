@@ -18,7 +18,8 @@ import {
   initialCards,
   cardName,
   cardImageLink,
-} from "../utils/constans";
+  settings,
+} from "../utils/constants";
 
 const userInfo = new UserInfo({
   userName: ".profile__username",
@@ -29,7 +30,7 @@ const imagePopup = new PopupWithImage(".image-popup");
 imagePopup.setEventListeners();
 
 const createCard = (item) => {
-  return new Card(item, "#card-template", imagePopup.open);
+  return new Card(item, "#card-template", imagePopup.open).generateCard();
 };
 
 const section = new Section(
@@ -37,7 +38,7 @@ const section = new Section(
     items: initialCards,
     renderer: (item) => {
       const card = createCard(item);
-      section.addItem(card.generateCard());
+      section.addItem(card);
     },
   },
   ".elements__grid"
@@ -53,18 +54,10 @@ editPopup.setEventListeners();
 
 const addCard = new PopupWithForm(".popup_type_add-card", (data) => {
   const card = createCard(data);
-  section.addItem(card.generateCard());
+  section.addItem(card);
   addCard.close();
 });
 addCard.setEventListeners();
-
-const settings = {
-  inputSelector: ".input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible",
-};
 
 //validation
 const editFormValidator = new FormValidator(settings, popupEditProfile);
