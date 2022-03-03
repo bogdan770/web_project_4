@@ -90,7 +90,7 @@ const addCard = new PopupWithForm(".popup_type_add-card", (data) => {
   console.log(cardData);
   const card = createCard(cardData);
 
-  section.addItem(card.generateCard());
+  section.addItem(card.createCard());
 });
 
 addCard.setEventListeners();
