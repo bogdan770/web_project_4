@@ -15,11 +15,11 @@ import {
   formAddCardElement,
   nameInput,
   jobInput,
-  initialCards,
   cardName,
   cardImageLink,
   settings,
 } from "../utils/constants";
+import { api } from "../components/Api";
 
 const userInfo = new UserInfo({
   userName: ".profile__username",
@@ -29,21 +29,17 @@ const userInfo = new UserInfo({
 const imagePopup = new PopupWithImage(".image-popup");
 imagePopup.setEventListeners();
 
-const createCard = (item) => {
-  return new Card(item, "#card-template", imagePopup.open).generateCard();
+const createCard = (data) => {
+  return new Card(data, "#card-template", imagePopup.open).generateCard();
 };
 
-const section = new Section(
-  {
-    items: initialCards,
-    renderer: (item) => {
-      const card = createCard(item);
-      section.addItem(card);
-    },
-  },
-  ".elements__grid"
-);
-section.render();
+const section = new Section((data) => {
+  section.addItem(createCard(data));
+}, ".elements__grid");
+
+api.getInitialCards().then((res) => {
+  section.render(res);
+});
 
 const editPopup = new PopupWithForm(".popup_type_edit-profile", (data) => {
   userInfo.setUserInfo(data);

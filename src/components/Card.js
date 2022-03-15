@@ -1,7 +1,7 @@
 export default class Card {
   constructor(data, cardSelector, handleCardClick) {
-    this._title = data.title;
-    this._image = data.image;
+    this._name = data.name;
+    this._link = data.link;
 
     this._cardSelector = cardSelector;
 
@@ -30,14 +30,14 @@ export default class Card {
 
     this._element.querySelector(
       ".element__image"
-    ).style.backgroundImage = `url(${this._image})`;
-    this._element.querySelector(".element__title").textContent = this._title;
+    ).style.backgroundImage = `url(${this._link})`;
+    this._element.querySelector(".element__title").textContent = this._name;
 
     return this._element;
   }
 
   _handleOpenPopup() {
-    this._handleCardClick({ image: this._image, title: this._title });
+    this._handleCardClick({ link: this._link, name: this._name });
   }
 
   _setEventListeners() {
