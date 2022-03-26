@@ -16,7 +16,7 @@ const nameInput = document.querySelector("#userName");
 const jobInput = document.querySelector("#userJob");
 const cardName = document.querySelector("#cardNameId");
 const cardImageLink = document.querySelector("#cardLinkId");
-const profileAvatarEditBtn = document.querySelector(".profile__avatar_btn");
+const profileAvatarEditBtn = document.querySelector(".profile__avatar-btn");
 const cardElement = document
   .querySelector("#card-template")
   .content.querySelector(".element");

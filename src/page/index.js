@@ -72,7 +72,7 @@ Promise.all([api.getInitialCards(), api.getUserInfo()])
 //Image Popup
 const imagePopup = new PopupWithImage(".image-popup");
 imagePopup.setEventListeners();
-const deletePopup = new PopupWithConfirmation(".popup__confirmation");
+const deletePopup = new PopupWithConfirmation(".popup_confirmation");
 deletePopup.setEventListeners();
 
 //Creating card
@@ -163,7 +163,7 @@ editPopup.setEventListeners();
 
 //Avatar profile popup
 const popupProfileAvatar = new PopupWithForm(
-  ".popup__avatar",
+  ".popup_avatar",
   (data) => {
     popupProfileAvatar.showLoading();
     api
