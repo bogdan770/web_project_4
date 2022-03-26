@@ -1,5 +1,12 @@
 const popupEditProfile = document.querySelector(".popup_type_edit-profile");
+const popupEditSubmit = document.querySelector(".popup__button_change-profile");
 const popupAddCard = document.querySelector(".popup_type_add-card");
+const popupNewAvatarSubmit = document.querySelector(
+  ".popup__button_change-avarat"
+);
+
+const confirmButton = document.querySelector(".popup__button_confirmation");
+const popupCreateCardBtn = document.querySelector(".popup__button_create-card");
 const placesList = document.querySelector(".elements__grid");
 const editButton = document.querySelector(".profile__edit-button");
 const addButton = document.querySelector(".profile__add-button");
@@ -9,33 +16,13 @@ const nameInput = document.querySelector("#userName");
 const jobInput = document.querySelector("#userJob");
 const cardName = document.querySelector("#cardNameId");
 const cardImageLink = document.querySelector("#cardLinkId");
+const profileAvatarEditBtn = document.querySelector(".profile__avatar_btn");
+const cardElement = document
+  .querySelector("#card-template")
+  .content.querySelector(".element");
 
-const initialCards = [
-  {
-    title: "Yosemite Valley",
-    image: "https://code.s3.yandex.net/web-code/yosemite.jpg",
-  },
-  {
-    title: "Lake Louise",
-    image: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
-  },
-  {
-    title: "Bald Mountains",
-    image: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
-  },
-  {
-    title: "Latemar",
-    image: "https://code.s3.yandex.net/web-code/latemar.jpg",
-  },
-  {
-    title: "Vanoise National Park",
-    image: "https://code.s3.yandex.net/web-code/vanoise.jpg",
-  },
-  {
-    title: "Lago di Braies",
-    image: "https://code.s3.yandex.net/web-code/lago.jpg",
-  },
-];
+const mainLogo = document.querySelector(".header__logo");
+const profileAvatar = document.querySelector(".profile__avatar");
 
 const settings = {
   inputSelector: ".input",
@@ -47,6 +34,7 @@ const settings = {
 
 export {
   popupEditProfile,
+  popupEditSubmit,
   popupAddCard,
   placesList,
   editButton,
@@ -55,8 +43,14 @@ export {
   formAddCardElement,
   nameInput,
   jobInput,
-  initialCards,
   cardName,
   cardImageLink,
   settings,
+  mainLogo,
+  profileAvatar,
+  profileAvatarEditBtn,
+  popupNewAvatarSubmit,
+  cardElement,
+  popupCreateCardBtn,
+  confirmButton,
 };

@@ -9,26 +9,20 @@
   <body class="body">
     <div class="shell">
       <header class="header">
-        <img
-          class="header__logo"
-          src="<%=require('./images/around.svg')%>"
-          alt="Main logo of website"
-        />
+        <img class="header__logo" alt="Main logo of website" src="#" />
       </header>
       <main class="page">
         <section class="profile">
-          <img
-            class="profile__avatar"
-            src="<%= require('./images/image.jpg')%>"
-            alt="Jacques Cousteau"
-          />
+          <div class="profile__avatar">
+            <button class="profile__avatar_btn"></button>
+          </div>
           <div class="profile__info">
-            <h1 class="profile__username">Jacques Cousteau</h1>
+            <h1 class="profile__username"></h1>
             <button
               class="profile__edit-button transition"
               type="button"
             ></button>
-            <p class="profile__userprof">Explorer</p>
+            <p class="profile__userprof"></p>
           </div>
           <button class="profile__add-button transition" type="button"></button>
         </section>
@@ -97,7 +91,7 @@
                 type="text"
                 class="input"
                 id="cardNameId"
-                name="title"
+                name="name"
                 placeholder="Title"
                 required
                 minlength="1"
@@ -108,7 +102,7 @@
                 type="url"
                 class="input"
                 id="cardLinkId"
-                name="image"
+                name="link"
                 placeholder="Image URL"
                 required
               />
@@ -118,6 +112,36 @@
                 type="submit"
               >
                 Create
+              </button>
+            </form>
+          </div>
+        </div>
+        <!-- profile avatar popup -->
+        <div class="popup popup__avatar">
+          <div class="popup__box">
+            <h2 class="popup__title">Change profile picture</h2>
+            <button class="popup__close" type="button"></button>
+            <form
+              action="#"
+              name="popupF"
+              id="popup__form-avatar"
+              class="popup__form"
+              novalidate
+            >
+              <input
+                type="url"
+                class="input"
+                id="avatatLinkId"
+                name="avatar"
+                placeholder="Image link"
+                required
+              />
+              <span id="avatatLinkId-error" class="popup__error"></span>
+              <button
+                class="popup__button popup__button_change-avarat"
+                type="submit"
+              >
+                Save
               </button>
             </form>
           </div>
@@ -137,6 +161,28 @@
             <p class="image-popup__title"></p>
           </div>
         </div>
+
+        <!--confirmation popup-->
+        <div class="popup popup__confirmation">
+          <div class="popup__box">
+            <h2 class="popup__title">Are you sure?</h2>
+            <button class="popup__close" type="button"></button>
+            <form
+              action="#"
+              name="popupC"
+              id="popup__form-confirmation"
+              class="popup__form"
+              novalidate
+            >
+              <button
+                class="popup__button popup__button_confirmation"
+                type="submit"
+              >
+                Yes
+              </button>
+            </form>
+          </div>
+        </div>
       </main>
     </div>
 
@@ -144,10 +190,13 @@
     <template id="card-template">
       <li class="element transition">
         <button class="element__delete transition"></button>
-        <div class="element__image"></div>
+        <img class="element__image" />
         <div class="element__conteiner">
           <h2 class="element__title"></h2>
-          <button class="element__like transition" type="button"></button>
+          <div class="element__like-container">
+            <button class="element__like transition" type="button"></button>
+            <span class="element__like-count"></span>
+          </div>
         </div>
       </li>
     </template>

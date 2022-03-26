@@ -3,14 +3,14 @@ import { Popup } from "./Popup";
 export class PopupWithImage extends Popup {
   constructor(popupSelector) {
     super(popupSelector);
-    this._link = this._popup.querySelector(".image-popup__image");
-    this._name = this._popup.querySelector(".image-popup__title");
+    this._cardLink = this._popup.querySelector(".image-popup__image");
+    this._cardName = this._popup.querySelector(".image-popup__title");
   }
 
-  open = ({ link, name }) => {
-    this._link.src = link;
-    this._link.alt = `Image ${name}`;
-    this._name.textContent = name;
+  open = (link, name) => {
+    this._cardLink.src = link;
+    this._cardLink.alt = `Image ${name}`;
+    this._cardName.textContent = name;
     super.open();
   };
 }
