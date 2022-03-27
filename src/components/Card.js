@@ -1,7 +1,7 @@
 export default class Card {
   constructor({
     data,
-    userid,
+    userId,
     cardElement,
     handleLikeClick,
     handleCardClick,
@@ -11,7 +11,7 @@ export default class Card {
     this._link = data.link;
     this._likes = data.likes;
     this._id = data._id;
-    this._userid = userid;
+    this._userId = userId;
     this._ownerId = data.owner._id;
     this._handleLikeClick = handleLikeClick;
     this._handleCardClick = handleCardClick;
@@ -21,11 +21,12 @@ export default class Card {
   createCard() {
     this._setEventListeners();
 
-    this._element.querySelector(".element__image").src = this._link;
-    this._element.querySelector(".element__image").alt = this._name;
+    const imageElement = this._element.querySelector(".element__image");
+    imageElement.src = this._link;
+    imageElement.alt = this._name;
     this._element.querySelector(".element__title").textContent = this._name;
 
-    if (this._userid !== this._ownerId) {
+    if (this._userId !== this._ownerId) {
       this._element.querySelector(".element__delete").style.display = "none";
     }
     this._renderLikes();
@@ -49,7 +50,7 @@ export default class Card {
         this._handleLikeClick(this._id);
       });
 
-    if (this._userid === this._ownerId) {
+    if (this._userId === this._ownerId) {
       this._element
         .querySelector(".element__delete")
         .addEventListener("click", (evt) =>
@@ -59,7 +60,7 @@ export default class Card {
   }
 
   checkIsLiked() {
-    return this._likes.some((like) => like._id === this._userid);
+    return this._likes.some((like) => like._id === this._userId);
   }
 
   removeCard() {

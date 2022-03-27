@@ -2,12 +2,12 @@
   width: 21px;
   height: 19px;
   margin: 0;
-  /* transition: opacity .5s ease-in-out; */
   cursor: pointer;
   border: none;
   padding: 0;
   background-color: transparent;
   background-image: url(../../../images/like.svg);
+  transition: opacity 0.3s linear;
 }
 
 .element__like:hover {

@@ -53,11 +53,11 @@ const api = new Api({
   },
 });
 
-let userid;
+let userId;
 
 Promise.all([api.getInitialCards(), api.getUserInfo()])
   .then(([cardsData, userData]) => {
-    userid = userData._id;
+    userId = userData._id;
     section.render(cardsData);
     userInfo.setUserInfo({
       name: userData.name,
@@ -79,7 +79,7 @@ deletePopup.setEventListeners();
 function generateCard(data) {
   const card = new Card({
     data: data,
-    userid: userid,
+    userId: userId,
     cardElement: cardElement,
     handleLikeClick: (cardId) => {
       const isLiked = card.checkIsLiked();
@@ -109,12 +109,10 @@ function generateCard(data) {
       const link = target.src;
       const name = target.alt;
       imagePopup.open(link, name);
-      imagePopup.setEventListeners();
     },
     handleDeleteCard: (cardId) => {
       deletePopup.open();
       deletePopup.setAction(() => {
-        confirmButton.textContent = "Deleting...";
         api
           .deleteCard(cardId)
           .then(() => {
@@ -128,10 +126,11 @@ function generateCard(data) {
             confirmButton.textContent = "Yes";
           });
       });
+      confirmButton.textContent = "Deleting...";
     },
   });
-  const imagesGrid = card.createCard();
-  return imagesGrid;
+  const cardElements = card.createCard();
+  return cardElements;
 }
 
 const section = new Section((data) => {
@@ -144,7 +143,7 @@ const editPopup = new PopupWithForm(
   (data) => {
     editPopup.showLoading();
     api
-      .editProfile(data.userN, data.userJ)
+      .editProfile(data.userName, data.userJob)
       .then((res) => {
         userInfo.setUserInfo(res);
         editPopup.close();
@@ -214,13 +213,17 @@ const cardFormValidator = new FormValidator(settings, popupAddCard);
 editFormValidator.enableValidation();
 cardFormValidator.enableValidation();
 
+function fillProfileForm() {
+  const data = userInfo.getUserInfo();
+  nameInput.value = data.name;
+  jobInput.value = data.about;
+}
+
 //opening popup form with profile and filling it by data from the page  CORRECT
 editButton.addEventListener("click", () => {
   editPopup.open();
   editFormValidator.resetValidation();
-  const data = userInfo.getUserInfo();
-  nameInput.value = data.name;
-  jobInput.value = data.about;
+  fillProfileForm();
 });
 
 //opening popup with new card

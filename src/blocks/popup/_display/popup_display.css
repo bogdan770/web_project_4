@@ -1,7 +1,7 @@
-.popup_display{
-    visibility: visible;
-    opacity: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.popup_display {
+  visibility: visible;
+  opacity: 1;
+  justify-content: center;
+  align-items: center;
+  /* transition: visibility 0s, opacity 0.5s linear; */
 }

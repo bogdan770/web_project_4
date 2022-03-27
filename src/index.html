@@ -18,13 +18,10 @@
           </div>
           <div class="profile__info">
             <h1 class="profile__username"></h1>
-            <button
-              class="profile__edit-button transition"
-              type="button"
-            ></button>
+            <button class="profile__edit-button" type="button"></button>
             <p class="profile__userprof"></p>
           </div>
-          <button class="profile__add-button transition" type="button"></button>
+          <button class="profile__add-button" type="button"></button>
         </section>
         <section class="elements">
           <ul class="elements__grid"></ul>
@@ -48,7 +45,7 @@
                 type="text"
                 class="input"
                 id="userName"
-                name="userN"
+                name="userName"
                 placeholder="Name"
                 required
                 minlength="2"
@@ -59,7 +56,7 @@
                 type="text"
                 class="input"
                 id="userJob"
-                name="userJ"
+                name="userJob"
                 placeholder="About Me"
                 required
                 minlength="2"
@@ -150,7 +147,7 @@
         <div class="popup image-popup">
           <div class="popup__box-image">
             <button
-              class="image-popup__button-close popup__close transition"
+              class="image-popup__button-close popup__close"
               type="button"
             ></button>
             <img
@@ -188,13 +185,13 @@
 
     <!-- adding JAVASCRIPT file -->
     <template id="card-template">
-      <li class="element transition">
-        <button class="element__delete transition"></button>
+      <li class="element">
+        <button class="element__delete"></button>
         <img class="element__image" />
         <div class="element__conteiner">
           <h2 class="element__title"></h2>
           <div class="element__like-container">
-            <button class="element__like transition" type="button"></button>
+            <button class="element__like" type="button"></button>
             <span class="element__like-count"></span>
           </div>
         </div>

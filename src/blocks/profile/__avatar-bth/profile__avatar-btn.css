@@ -6,7 +6,6 @@
   background-image: url("../../../images/edit_profile_img_button.svg");
   background-repeat: no-repeat;
   background-position: center;
-  z-index: 1;
   opacity: 0;
   transition: opacity 0.3s linear;
   cursor: pointer;
@@ -14,6 +13,6 @@
   padding: 0;
 }
 
-.profile__avatar_btn:hover {
+.profile__avatar-btn:hover {
   opacity: 1;
 }

@@ -50,8 +50,6 @@
 
 @import url(../blocks/input/input.css);
 /* input CSS style */
-@import url(../blocks/transition/transition.css);
-
 @import url(../blocks/image-popup/image-popup.css);
 @import url(../blocks/image-popup/_display/image-popup_display.css);
 @import url(../blocks/image-popup/__button-close/image-popup__button-close.css);
