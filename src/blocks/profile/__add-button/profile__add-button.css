@@ -7,7 +7,7 @@
   padding: 0;
   margin-left: auto;
   cursor: pointer;
-  background-image: url(../../../images/add__button.png);
+  background-image: url(../../../images/plus.svg);
   background-repeat: no-repeat;
   background-position: center;
   transition: opacity 0.3s linear;
