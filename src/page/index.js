@@ -113,6 +113,7 @@ function generateCard(data) {
     handleDeleteCard: (cardId) => {
       deletePopup.open();
       deletePopup.setAction(() => {
+        confirmButton.textContent = "Deleting...";
         api
           .deleteCard(cardId)
           .then(() => {
@@ -126,7 +127,6 @@ function generateCard(data) {
             confirmButton.textContent = "Yes";
           });
       });
-      confirmButton.textContent = "Deleting...";
     },
   });
   const cardElements = card.createCard();
