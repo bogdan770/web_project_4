@@ -107,6 +107,7 @@ function generateCard(data) {
       evt.preventDefault();
       const target = evt.currentTarget;
       const link = target.src;
+      console.log(link);
       const name = target.alt;
       imagePopup.open(link, name);
     },
